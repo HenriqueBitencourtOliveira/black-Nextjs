@@ -5,6 +5,7 @@ import React, { useState } from "react";
 import { Button, Col, Row } from "reactstrap";
 import { ProductType } from "../services/products";
 import SuccessToast from "./SuccessToast";
+import { useCart } from "../hooks/useCart";
 
 type ProductDetailsProps = {
   product: ProductType
@@ -12,7 +13,7 @@ type ProductDetailsProps = {
 
 const ProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
   const [toastIsOpen, setToastIsOpen] = useState(false)
-
+  const { addProduct } = useCart()
   return (
     <Row>
       <Col lg={6}>
@@ -21,6 +22,7 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
           alt={product.name}
           height={500}
           width={600}
+          layout="responsive"
         />
       </Col>
 
@@ -39,9 +41,16 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
         <Button
           color="dark"
           className="my-3 pb-2"
+          onClick={() => {
+            addProduct(product)
+            setToastIsOpen(true)
+            setTimeout(() => setToastIsOpen(false), 1000 * 3)
+          }}
         >
           Compre agora
         </Button>
+
+        
 
         <SuccessToast toastIsOpen={toastIsOpen} setToastIsOpen={setToastIsOpen} />
       </Col>
