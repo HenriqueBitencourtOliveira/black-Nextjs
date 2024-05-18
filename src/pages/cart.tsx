@@ -23,7 +23,9 @@ const Cart: NextPage = () => {
           </h1>
 
           <CartTable />
+          <div style={{marginTop:"20px"}}>
           <CartTotal/>
+          </div>
         </Container>
       </main>
     </>
