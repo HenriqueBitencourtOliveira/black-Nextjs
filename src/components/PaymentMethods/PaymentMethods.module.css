@@ -1,0 +1,87 @@
+/* components/PaymentMethods.module.css */
+
+.example2  {
+    list-style: none;
+  }
+  
+  .example2 {
+    display: flex;
+    padding-left: 0 ;
+    
+  }
+  .iconContent {
+    margin: 0 10px;
+    position: relative;
+  }
+  .iconContent .tooltip {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 5px;
+    opacity: 0;
+    visibility: hidden;
+    font-size: 14px;
+    transition: all 0.3s ease;
+  }
+  .iconContent:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+    top: -50px;
+  }
+  .iconContent a {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    color: #4d4d4d;
+    background-color: #fff;
+    transition: all 0.3s ease-in-out;
+  }
+  .iconContent a:hover {
+    box-shadow: 3px 2px 45px 0px rgb(0 0 0 / 12%);
+  }
+  .iconContent a svg {
+    position: relative;
+    z-index: 1;
+    width: 30px;
+    height: 30px;
+  }
+  .iconContent a:hover {
+    color: white;
+  }
+  .iconContent a .filled {
+    position: absolute;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background-color: #000;
+    transition: all 0.3s ease-in-out;
+  }
+  .iconContent a:hover .filled {
+    height: 100%;
+  }
+  
+  .iconContent a[data-social="boleto"] .filled,
+  .iconContent a[data-social="boleto"] ~ .tooltip {
+    background-color: #8298e6; /* Cor para Boleto */
+  }
+  
+  .iconContent a[data-social="pix"] .filled,
+  .iconContent a[data-social="pix"] ~ .tooltip {
+    background-color: #04c4aa; /* Cor para PIX */
+  }
+  
+  .iconContent a[data-social="credit-card"] .filled,
+  .iconContent a[data-social="credit-card"] ~ .tooltip {
+    background-color: #fd8a1f; /* Cor para Cartão de Crédito */
+  }
+  

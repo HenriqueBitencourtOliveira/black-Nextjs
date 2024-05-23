@@ -15,7 +15,16 @@ type CartEntry = {
 
 const CartTableRow = (props: { entry: CartEntry }) => {
   const { addProduct, removeProduct } = useCart();
+  const formattedTotal = new Intl.NumberFormat('pt-BR', {
+    style: 'currency',
+    currency: 'BRL'
+  }).format(props.entry.product.price);
 
+  const TotalQtd = new Intl.NumberFormat('pt-BR', {
+    style: 'currency',
+    currency: 'BRL'
+  }).format(props.entry.product.price * props.entry.quantity);
+  
   return (
     <tr>
       <td>
@@ -34,9 +43,9 @@ const CartTableRow = (props: { entry: CartEntry }) => {
           </Col>
         </Row>
       </td>
-      <td>R$ {props.entry.product.price}</td>
+      <td>R$ {formattedTotal}</td>
       <td>{props.entry.quantity}</td>
-      <td>R$ {props.entry.product.price * props.entry.quantity}</td>
+      <td>{TotalQtd}</td>
       <td>
         <Button
           color="primary"

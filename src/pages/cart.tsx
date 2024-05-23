@@ -6,6 +6,7 @@ import Header from "../components/Header";
 import { NextPage } from "next";
 import Head from "next/head";
 import { Container } from "reactstrap";
+import ButtonBuy from "../components/ButtonBuy/ButtonBuy";
 
 const Cart: NextPage = () => {
   return (
@@ -26,6 +27,10 @@ const Cart: NextPage = () => {
           <div style={{marginTop:"20px"}}>
           <CartTotal/>
           </div>
+          <div className="d-flex justify-content-end my-3">
+          <ButtonBuy/>
+          </div>
+
         </Container>
       </main>
     </>
